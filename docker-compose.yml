@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  rabbitmq-microservice:
+    image: rabbitmq:3.9.10
+    restart: always 
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  opendaylight:
+      build:
+        context: .
+        dockerfile: Opendaylight/Dockerfile
+      restart: always 
+      stdin_open: true 
+      tty: true
+      ports:
+        - 6633:6633
+        - 8101:8101
+        - 8181:8181
+  
+  netopeer:
+      image: sysrepo/sysrepo-netopeer2:latest
+      restart: always
+      ports:
+        - 6001:6001
