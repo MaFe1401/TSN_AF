@@ -7,3 +7,7 @@ sudo docker-compose up -d
 
 sudo docker ps  
 sudo docker inspect (id)  
+
+## Generate an ssh keypair 
+
+ssh-keygen -t rsa -b 2048 -m PEM -f ./sshServer/rsa
