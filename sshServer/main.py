@@ -1,4 +1,4 @@
-from sshServer import SshServer
+from sshServerConn import SshServer
 
 if __name__ == '__main__':
     server = SshServer('rsa')

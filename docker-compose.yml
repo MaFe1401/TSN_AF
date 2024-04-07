@@ -33,4 +33,4 @@ services:
       stdin_open: true
       tty: true
       ports:
-        - 22:22
+        - "22:22/tcp"
