@@ -40,7 +40,10 @@ class Shell(Cmd):
             self.printline('Hey {0}! Nice to see you, mate!'.format(arg))
         else:
             self.printline('Hello, customer!')
-
+    
+  #  def do_lldpd(self, arg):
+   #     if arg:
+            
     # even if you don't use the arg parameter, it must be included.
     def do_bye(self, arg):
         self.printline('See you later!')
