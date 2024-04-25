@@ -19,6 +19,8 @@ ADD sshServer/serverBase.py .
 ADD sshServer/serverInterface.py .
 ADD sshServer/sshServerConn.py .
 ADD sshServer/shell.py .
+ADD sshServer/neighborDiscoveryFunctions.py .
+ADD sshServer/neighbors/ .
 RUN pip install -r requirements.txt
 RUN ssh-keygen -t rsa -b 2048 -m PEM -f ./rsa
 CMD ["python", "./main.py"]

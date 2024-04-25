@@ -1,5 +1,6 @@
 from cmd import Cmd
-
+from neighborDiscoveryFunctions import *
+nwttIp="192.168.4.52"
 class Shell(Cmd):
     
     # Message to be output when cmdloop() is called.
@@ -41,8 +42,13 @@ class Shell(Cmd):
         else:
             self.printline('Hello, customer!')
     
-  #  def do_lldpd(self, arg):
-   #     if arg:
+    def do_sudo(self, arg):
+        if arg:
+            self.printline('looking for lldp neighbors')
+            neighbors = checkNeighborsNWTT(nwttIp)
+            print (neighbors)
+        else:
+            self.printline('something is not working')
             
     # even if you don't use the arg parameter, it must be included.
     def do_bye(self, arg):
