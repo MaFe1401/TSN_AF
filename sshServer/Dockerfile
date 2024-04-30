@@ -14,13 +14,13 @@ RUN echo "PubkeyAcceptedAlgorithms = +ssh-rsa" >> /etc/ssh/ssh_config
 #EXPOSE 22
 #CMD ["sshd", "-D"]
 #####
-ADD sshServer/main.py .
-ADD sshServer/serverBase.py .
-ADD sshServer/serverInterface.py .
-ADD sshServer/sshServerConn.py .
-ADD sshServer/shell.py .
-ADD sshServer/neighborDiscoveryFunctions.py .
-ADD sshServer/neighbors/ .
+#ADD sshServer/main.py .
+#ADD sshServer/serverBase.py .
+#ADD sshServer/serverInterface.py .
+#ADD sshServer/sshServerConn.py .
+#ADD sshServer/shell.py .
+#ADD sshServer/neighborDiscoveryFunctions.py .
+#COPY /sshServer/neighbors/nwttNeighbors.json /sshserver/neighbors/nwttNeighbors.json
 RUN pip install -r requirements.txt
-RUN ssh-keygen -t rsa -b 2048 -m PEM -f ./rsa
+RUN ssh-keygen -t rsa -b 2048 -m PEM -f rsa
 CMD ["python", "./main.py"]

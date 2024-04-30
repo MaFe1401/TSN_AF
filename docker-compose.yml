@@ -29,8 +29,8 @@ services:
       build:
         context: .
         dockerfile: sshServer/Dockerfile
-    #  volumes:
-      #  - ./sshServer:/sshserver
+      volumes:
+        - ./sshServer:/sshserver
       restart: always
       stdin_open: true
       tty: true

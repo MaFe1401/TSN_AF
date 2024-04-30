@@ -1,5 +1,5 @@
 import paramiko
-
+import os
 def checkNeighborsNWTT(ip):
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -8,6 +8,7 @@ def checkNeighborsNWTT(ip):
     ssh_stdin.write('sys-admin\n')
     ssh_stdin.flush()
     data=ssh_stdout.readlines()
+    print(os.getcwd())
     with open('neighbors/nwttNeighbors.json', 'a') as f:
         f.truncate(0)
         del data[0:2]
