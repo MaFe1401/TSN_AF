@@ -22,5 +22,7 @@ RUN echo "PubkeyAcceptedAlgorithms = +ssh-rsa" >> /etc/ssh/ssh_config
 #ADD sshServer/neighborDiscoveryFunctions.py .
 #COPY /sshServer/neighbors/nwttNeighbors.json /sshserver/neighbors/nwttNeighbors.json
 RUN pip install -r requirements.txt
-RUN ssh-keygen -t rsa -b 2048 -m PEM -f rsa
+#RUN /bin/bash -c "ssh-keygen -t rsa -b 2048 -m PEM -f rsa"
+#RUN ssh-keygen -t rsa -b 2048 -m PEM -f rsa 
+#CMD ["ssh-keygen", "-t rsa", "-b 2048", "-m PEM", "-f rsa"]
 CMD ["python", "./main.py"]

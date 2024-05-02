@@ -1,6 +1,7 @@
 from cmd import Cmd
 from neighborDiscoveryFunctions import *
 nwttIp="192.168.4.52"
+dsttIp="192.168.4.51"
 class Shell(Cmd):
     
     # Message to be output when cmdloop() is called.
@@ -45,8 +46,11 @@ class Shell(Cmd):
     def do_sudo(self, arg):
         if arg:
             self.printline('looking for lldp neighbors')
-            neighbors = checkNeighborsNWTT(nwttIp)
-            print (neighbors)
+            neighborsNWTT = checkNeighborsNWTT(nwttIp)
+            neighborsDSTT = checkNeighborsDSTT(dsttIp)
+            #print (neighborsNWTT)
+            #print (neighborsDSTT)
+            mergeNeighbors(neighborsDSTT,neighborsNWTT)
         else:
             self.printline('something is not working')
             

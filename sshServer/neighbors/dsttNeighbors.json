@@ -12,27 +12,27 @@
 
           "rid": "1",
 
-          "age": "16 days, 01:35:06",
+          "age": "13 days, 22:46:59",
 
           "chassis": {
 
-            "RELY-TSN4": {
+            "RELY_TSN_PCIe": {
 
               "id": {
 
                 "type": "mac",
 
-                "value": "70:f8:e7:d0:35:45"
+                "value": "70:f8:e7:d0:35:f1"
 
               },
 
-              "descr": "RELY-TSN4",
+              "descr": "RELY_TSN_PCIe",
 
               "mgmt-ip": [
 
-                "192.168.4.67",
+                "192.168.4.52",
 
-                "fe80::72f8:e7ff:fed0:3545"
+                "fe80::72f8:e7ff:fed0:35f1"
 
               ],
 
@@ -62,7 +62,7 @@
 
               "type": "mac",
 
-              "value": "70:f8:e7:d0:35:47"
+              "value": "70:f8:e7:d0:35:f2"
 
             },
 
@@ -82,29 +82,29 @@
 
           "via": "LLDP",
 
-          "rid": "5",
+          "rid": "4",
 
-          "age": "13 days, 22:46:48",
+          "age": "10 days, 01:37:33",
 
           "chassis": {
 
-            "RELY_TSN_PCIe": {
+            "RELY-TSN4": {
 
               "id": {
 
                 "type": "mac",
 
-                "value": "70:f8:e7:d0:35:ef"
+                "value": "de:44:49:b5:a3:a2"
 
               },
 
-              "descr": "RELY_TSN_PCIe",
+              "descr": "RELY-TSN4",
 
               "mgmt-ip": [
 
-                "192.168.4.51",
+                "192.168.4.66",
 
-                "fe80::72f8:e7ff:fed0:35ef"
+                "fe80::dc44:49ff:feb5:a3a2"
 
               ],
 
@@ -134,11 +134,11 @@
 
               "type": "mac",
 
-              "value": "70:f8:e7:d0:35:f0"
+              "value": "70:f8:e7:d0:35:4a"
 
             },
 
-            "descr": "PORT_0",
+            "descr": "PORT_1",
 
             "ttl": "40"
 
@@ -154,9 +154,9 @@
 
           "via": "LLDP",
 
-          "rid": "12",
+          "rid": "3",
 
-          "age": "1 day, 23:58:32",
+          "age": "13 days, 22:46:44",
 
           "chassis": {
 
@@ -166,25 +166,25 @@
 
                 "type": "mac",
 
-                "value": "70:f8:e7:d0:35:7f"
+                "value": "70:f8:e7:d0:35:69"
 
               },
 
-              "descr": "Ubuntu 22.04.3 LTS Linux 6.5.0-28-generic #29~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  4 14:39:20 UTC 2 x86_64",
+              "descr": "Ubuntu 22.04.3 LTS Linux 6.2.0-26-generic #26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jul 13 16:27:29 UTC 2 x86_64",
 
               "mgmt-ip": [
 
-                "147.83.118.150",
+                "192.168.4.71",
 
-                "2001:db8:cafe::1"
+                "fe80::72f8:e7ff:fed0:3569"
 
               ],
 
               "mgmt-iface": [
 
-                "3",
+                "2",
 
-                "12"
+                "6"
 
               ],
 
@@ -194,7 +194,7 @@
 
                   "type": "Bridge",
 
-                  "enabled": true
+                  "enabled": false
 
                 },
 
@@ -234,7 +234,7 @@
 
               "type": "mac",
 
-              "value": "70:f8:e7:d0:35:7f"
+              "value": "70:f8:e7:d0:35:69"
 
             },
 
