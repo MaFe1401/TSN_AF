@@ -51,18 +51,21 @@ def find_values(id,json_repr):
 
 def delete_values(id,json_repr,jsonFilePath):
     results = []
-
     def _decode_dict(a_dict):
         try:
-            pass
+            results.append(a_dict)
+            results.remove(a_dict[id])
         except KeyError:
-            results.append(a_dict[id])
+            pass
         return a_dict
     
-    json.loads(json_repr, object_hook=_decode_dict)
+    newjson = json.loads(json_repr, object_hook=_decode_dict)
+    finalString= json.dumps(newjson,indent=2)
+    print(finalString)
     with open(jsonFilePath,'a') as f:
         f.truncate(0)
-        f.write(results)
+        for line in finalString:
+            f.write(line)
 
     return results
 
@@ -71,5 +74,5 @@ def mergeNeighbors(neighborsDSTT, neighborsNWTT):
     jsonNWTT = json.load(neighborsNWTT)
     stringDSTT = json.dumps(jsonDSTT)
     stringNWTT = json.dumps(jsonNWTT)
-    delete_values('PORT_1',stringNWTT,'neighbors/dsttNeighbors.json')
+    delete_values('PORT_1',stringNWTT,'neighbors/nwttNeighbors.json')
     
