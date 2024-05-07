@@ -1,0 +1,258 @@
+{
+
+  "lldp": {
+
+    "interface": [
+
+      {
+
+        "PORT_0": {
+
+          "via": "LLDP",
+
+          "rid": "1",
+
+          "age": "13 days, 22:46:59",
+
+          "chassis": {
+
+            "RELY_TSN_PCIe": {
+
+              "id": {
+
+                "type": "mac",
+
+                "value": "70:f8:e7:d0:35:f1"
+
+              },
+
+              "descr": "RELY_TSN_PCIe",
+
+              "mgmt-ip": [
+
+                "192.168.4.52",
+
+                "fe80::72f8:e7ff:fed0:35f1"
+
+              ],
+
+              "mgmt-iface": [
+
+                "3",
+
+                "3"
+
+              ],
+
+              "capability": {
+
+                "type": "Bridge",
+
+                "enabled": true
+
+              }
+
+            }
+
+          },
+
+          "port": {
+
+            "id": {
+
+              "type": "mac",
+
+              "value": "70:f8:e7:d0:35:f2"
+
+            },
+
+            "descr": "PORT_1",
+
+            "ttl": "40"
+
+          }
+
+        }
+
+      },
+
+      {
+
+        "PORT_1": {
+
+          "via": "LLDP",
+
+          "rid": "4",
+
+          "age": "10 days, 01:37:33",
+
+          "chassis": {
+
+            "RELY-TSN4": {
+
+              "id": {
+
+                "type": "mac",
+
+                "value": "de:44:49:b5:a3:a2"
+
+              },
+
+              "descr": "RELY-TSN4",
+
+              "mgmt-ip": [
+
+                "192.168.4.66",
+
+                "fe80::dc44:49ff:feb5:a3a2"
+
+              ],
+
+              "mgmt-iface": [
+
+                "3",
+
+                "3"
+
+              ],
+
+              "capability": {
+
+                "type": "Bridge",
+
+                "enabled": true
+
+              }
+
+            }
+
+          },
+
+          "port": {
+
+            "id": {
+
+              "type": "mac",
+
+              "value": "70:f8:e7:d0:35:4a"
+
+            },
+
+            "descr": "PORT_1",
+
+            "ttl": "40"
+
+          }
+
+        }
+
+      },
+
+      {
+
+        "PORT_PCIe": {
+
+          "via": "LLDP",
+
+          "rid": "3",
+
+          "age": "13 days, 22:46:44",
+
+          "chassis": {
+
+            "fivegtsn": {
+
+              "id": {
+
+                "type": "mac",
+
+                "value": "70:f8:e7:d0:35:69"
+
+              },
+
+              "descr": "Ubuntu 22.04.3 LTS Linux 6.2.0-26-generic #26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jul 13 16:27:29 UTC 2 x86_64",
+
+              "mgmt-ip": [
+
+                "192.168.4.71",
+
+                "fe80::72f8:e7ff:fed0:3569"
+
+              ],
+
+              "mgmt-iface": [
+
+                "2",
+
+                "6"
+
+              ],
+
+              "capability": [
+
+                {
+
+                  "type": "Bridge",
+
+                  "enabled": false
+
+                },
+
+                {
+
+                  "type": "Router",
+
+                  "enabled": true
+
+                },
+
+                {
+
+                  "type": "Wlan",
+
+                  "enabled": false
+
+                },
+
+                {
+
+                  "type": "Station",
+
+                  "enabled": false
+
+                }
+
+              ]
+
+            }
+
+          },
+
+          "port": {
+
+            "id": {
+
+              "type": "mac",
+
+              "value": "70:f8:e7:d0:35:69"
+
+            },
+
+            "descr": "enp2s0",
+
+            "ttl": "120"
+
+          }
+
+        }
+
+      }
+
+    ]
+
+  }
+
+}
+
+
+

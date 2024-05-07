@@ -49,30 +49,38 @@ def find_values(id,json_repr):
     json.loads(json_repr, object_hook=_decode_dict)
     return results
 
-def delete_values(id,json_repr,jsonFilePath):
-    results = []
-    def _decode_dict(a_dict):
-        try:
-            results.append(a_dict)
-            results.remove(a_dict[id])
-        except KeyError:
-            pass
-        return a_dict
-    
-    newjson = json.loads(json_repr, object_hook=_decode_dict)
-    finalString= json.dumps(newjson,indent=2)
-    print(finalString)
-    with open(jsonFilePath,'a') as f:
-        f.truncate(0)
-        for line in finalString:
-            f.write(line)
+def delete_value(id,jsonFilePath):
 
-    return results
+    file = open(jsonFilePath,'r')
+    fileJson = json.load(file)
+    fileString = json.dumps(fileJson)
+    data = json.loads(fileString)
+
+    print("----DATA----")
+    print(data)
+
+    i = 0
+    while i < len(data["lldp"]["interface"]):
+        if (list(data["lldp"]["interface"][i].keys())[0]==id):
+
+            print(f"Deleted {id} from {jsonFilePath}")
+
+            del data["lldp"]["interface"][i]
+        else: pass
+        i+=1
+
+    stringData = json.dumps(data,indent=3)
+    with open(jsonFilePath, 'w') as file:
+        file.truncate(0)
+        for line in stringData:
+            file.write(line)
+    
+    return data
 
 def mergeNeighbors(neighborsDSTT, neighborsNWTT):
     jsonDSTT = json.load(neighborsDSTT)
     jsonNWTT = json.load(neighborsNWTT)
     stringDSTT = json.dumps(jsonDSTT)
     stringNWTT = json.dumps(jsonNWTT)
-    delete_values('PORT_1',stringNWTT,'neighbors/nwttNeighbors.json')
+    delete_value('PORT_1','neighbors/nwttNeighbors.json')
     
