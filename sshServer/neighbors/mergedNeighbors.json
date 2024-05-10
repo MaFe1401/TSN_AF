@@ -2,6 +2,42 @@
    "lldp": {
       "interface": [
          {
+            "PORT_0": {
+               "via": "LLDP",
+               "rid": "1",
+               "age": "23 days, 03:37:45",
+               "chassis": {
+                  "RELY-TSN4": {
+                     "id": {
+                        "type": "mac",
+                        "value": "70:f8:e7:d0:35:45"
+                     },
+                     "descr": "RELY-TSN4",
+                     "mgmt-ip": [
+                        "192.168.4.67",
+                        "fe80::72f8:e7ff:fed0:3545"
+                     ],
+                     "mgmt-iface": [
+                        "3",
+                        "3"
+                     ],
+                     "capability": {
+                        "type": "Bridge",
+                        "enabled": true
+                     }
+                  }
+               },
+               "port": {
+                  "id": {
+                     "type": "mac",
+                     "value": "70:f8:e7:d0:35:47"
+                  },
+                  "descr": "PORT_1",
+                  "ttl": "40"
+               }
+            }
+         },
+         {
             "PORT_1": {
                "via": "LLDP",
                "rid": "4",

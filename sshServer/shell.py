@@ -45,14 +45,20 @@ class Shell(Cmd):
     
     def do_sudo(self, arg):
         if arg:
-            self.printline('looking for lldp neighbors')
+            #self.printline('looking for lldp neighbors')
             neighborsNWTT = checkNeighborsNWTT(nwttIp)
             neighborsDSTT = checkNeighborsDSTT(dsttIp)
+            delete_value('PORT_1','neighbors/nwttNeighbors.json')
+            updatedNWTT=delete_value('PORT_PCIe','neighbors/nwttNeighbors.json') 
+            delete_value('PORT_0','neigbors/dsttNeighbors.json')
+            updatedDSTT=delete_value('PORT_PCIe','neighbors/dsttNeighbors.json')
+            mergedNeighbors=merge_neighbors('neighbors/dsttNeighbors.json','neighbors/nwttNeighbors.json')
+            self.print(mergedNeighbors)
             #print (neighborsNWTT)
             #print (neighborsDSTT)
-            mergeNeighbors(neighborsDSTT,neighborsNWTT)
+            #mergeNeighbors(neighborsDSTT,neighborsNWTT)
         else:
-            self.printline('something is not working')
+            self.printline('Use sudo only to ask for lldp neighbors')
             
     # even if you don't use the arg parameter, it must be included.
     def do_bye(self, arg):

@@ -49,7 +49,7 @@ def find_values(id,json_repr):
     json.loads(json_repr, object_hook=_decode_dict)
     return results
 
-def delete_value(id,jsonFilePath):
+def delete_value(id,jsonFilePath):#Working for now, must be deleted in the future and improve merge_neighbors function
 
     file = open(jsonFilePath,'r')
     fileJson = json.load(file)
@@ -77,10 +77,31 @@ def delete_value(id,jsonFilePath):
     
     return data
 
-def mergeNeighbors(neighborsDSTT, neighborsNWTT):
-    jsonDSTT = json.load(neighborsDSTT)
-    jsonNWTT = json.load(neighborsNWTT)
-    stringDSTT = json.dumps(jsonDSTT)
-    stringNWTT = json.dumps(jsonNWTT)
-    delete_value('PORT_1','neighbors/nwttNeighbors.json')
+def merge_neighbors(dsttPath, nwttPath):#Can be improved. No need to delete_value before
+    fileDSTT = open(dsttPath,'r')
+    dataDSTT = json.load(fileDSTT)
+
+    fileNWTT = open(nwttPath,'r')
+    dataNWTT = json.load(fileNWTT)
+    print("-----DATA DSTT-----")
+    print(dataDSTT["lldp"]["interface"][0])
+    try:
+        mergedData = dataNWTT["lldp"]["interface"].append(dataDSTT["lldp"]["interface"][0])
+        print("added one neighbor to the merged json")
+    except: 
+        print("No neighbors merged")
+    try:
+        mergedData = dataNWTT["lldp"]["interface"].append(dataDSTT["lldp"]["interface"][1])
+        print("added two neighbor")
+    except:
+        print("No more neighbors")
+    print("----MERGED DATA-----")
+    print(dataNWTT)
+    mergedDataJSON = json.dumps(dataNWTT,indent=3)
+    with open('neighbors/mergedNeighbors.json','a') as file:
+        file.truncate(0)
+        for line in mergedDataJSON:
+            file.write(line)
+    return mergedDataJSON
+
     
