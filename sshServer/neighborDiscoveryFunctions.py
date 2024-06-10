@@ -83,8 +83,8 @@ def merge_neighbors(dsttPath, nwttPath):#Can be improved. No need to delete_valu
 
     fileNWTT = open(nwttPath,'r')
     dataNWTT = json.load(fileNWTT)
-    print("-----DATA DSTT-----")
-    print(dataDSTT["lldp"]["interface"][0])
+    #print("-----DATA DSTT-----")
+    #print(dataDSTT["lldp"]["interface"][0])
     try:
         mergedData = dataNWTT["lldp"]["interface"].append(dataDSTT["lldp"]["interface"][0])
         print("added one neighbor to the merged json")

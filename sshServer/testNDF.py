@@ -1,5 +1,5 @@
 import json
-
+import os
 def find_values(id,json_repr):
     results = []
 
@@ -71,16 +71,20 @@ def merge_neighbors(dsttPath, nwttPath):
             file.write(line)
     return mergedDataJSON
 
+def announceIP():
+  ip = os.system("ip -f inet addr show eno1 | sed -En -e \'s/ .*inet ([0-9.]+).*/\\1/p\'")
+  return ip
+
+#announce ip test
+
+#merge neighbors test
+'''
 fileNWTT = open('neighbors/dsttNeighbors.json','r')
 jsonNWTT=json.load(fileNWTT)
 stringNWTT=json.dumps(jsonNWTT)
-#selectPort1 = find_values('PORT_1', stringNWTT)
-#stringPORT1 = json.dumps(selectPort1)
-#print(stringPORT1)
 delete_value('PORT_1','neighbors/nwttNeighbors.json')
 updatedNWTT=delete_value('PORT_PCIe','neighbors/nwttNeighbors.json') 
 delete_value('PORT_0','neighbors/dsttNeighbors.json')
 updatedDSTT=delete_value('PORT_PCIe','neighbors/dsttNeighbors.json')
 merge_neighbors('neighbors/dsttNeighbors.json','neighbors/nwttNeighbors.json')
-#print("---value---")
-#print(find_values('RELY-TSN4',stringNWTT))
+'''

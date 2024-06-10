@@ -38,6 +38,9 @@ class SshServer(ServerBase):
             # since the only way execution will continue from
             # cmdloop() is if we explicitly return True from it,
             # which we do with the bye command.
+            writemessage = channel.makefile("wb")
+            #writemessage.write("SOME COMMAND SUBMITTED")
+            writemessage.channel.send_exit_status(0)
             session.close()
         except:
             pass

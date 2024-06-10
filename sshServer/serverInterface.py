@@ -1,5 +1,5 @@
-import paramiko
-
+import paramiko,time
+import channelSingleton
 class SshServerInterface(paramiko.ServerInterface):
     
     # This will allow the SSH server to provide a
@@ -8,6 +8,7 @@ class SshServerInterface(paramiko.ServerInterface):
     # so  we have to override it to return OPEN_SUCCEEDED 
     # when the kind of channel requested is "session"
     def check_channel_request(self, kind, chanid):
+        
         if kind == "session":
             return paramiko.OPEN_SUCCEEDED
         return paramiko.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
@@ -18,8 +19,26 @@ class SshServerInterface(paramiko.ServerInterface):
         return True
     # This allows us to provide the channel with a shell we can connect to it.
     def check_channel_shell_request(self, channel):
+        writemessage = channel.makefile("wb")
+        #writemessage.write("SOME COMMAND SUBMITTED")
+        writemessage.channel.send_exit_status(0)
+        #time.sleep(2)
+        #channel.close()
         return True
     
+    def check_channel_exec_request(self, channel, command):
+        try:
+            command.decode()
+        except:
+            pass
+        #print(time.time())
+        writemessage = channel.makefile("wb")
+        print(command)
+        writemessage.write("SOME COMMAND SUBMITTED")
+        writemessage.channel.send_exit_status(0)
+        #time.sleep(3)
+        #channel.close()
+        return True
     # This let's us setup password authentication.
     # There are better ways to do this than using plain text.
     # For posterity, you could setup a database that encrypts

@@ -34,5 +34,7 @@ services:
       restart: always
       stdin_open: true
       tty: true
+      network_mode: host 
       ports:
         - "22:22"
+      
