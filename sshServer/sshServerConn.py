@@ -32,8 +32,9 @@ class SshServer(ServerBase):
             # create the client shell and start it
             # cmdloop() will block execution of this thread.
             self.client_shell = Shell(stdio, stdio)
+            print("ENTERING THE LOOP")
             self.client_shell.cmdloop()
-
+            print("EXITING LOOP")
             # After execution continues, we can close the session
             # since the only way execution will continue from
             # cmdloop() is if we explicitly return True from it,
@@ -41,7 +42,9 @@ class SshServer(ServerBase):
             writemessage = channel.makefile("wb")
             #writemessage.write("SOME COMMAND SUBMITTED")
             writemessage.channel.send_exit_status(0)
+            print("CLOSING")
             session.close()
         except:
+            print ("hola buenas tardes EXCEPT")
             pass
 

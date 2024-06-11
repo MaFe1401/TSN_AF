@@ -9,6 +9,8 @@ class SshServerInterface(paramiko.ServerInterface):
     # when the kind of channel requested is "session"
     def check_channel_request(self, kind, chanid):
         
+        print("KIND IS:")
+        print(kind)
         if kind == "session":
             return paramiko.OPEN_SUCCEEDED
         return paramiko.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
@@ -28,12 +30,14 @@ class SshServerInterface(paramiko.ServerInterface):
     
     def check_channel_exec_request(self, channel, command):
         try:
-            command.decode()
+            command = command.decode()
         except:
             pass
         #print(time.time())
         writemessage = channel.makefile("wb")
         print(command)
+        #print(command.decode())
+        
         writemessage.write("SOME COMMAND SUBMITTED")
         writemessage.channel.send_exit_status(0)
         #time.sleep(3)

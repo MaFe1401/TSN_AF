@@ -7,7 +7,7 @@ dsttIp="192.168.4.51"
 class Shell(Cmd):
     
     # Message to be output when cmdloop() is called.
-    intro='TSN AF SSH Shell \r\n'
+    intro='TSN AF SSH Shell'
     
     # Instead of using input(), this will use stdout.write() and stdin.readline(),
     # this means we can use any TextIO instead of just sys.stdin and sys.stdout.
@@ -79,6 +79,7 @@ class Shell(Cmd):
             return True
 
     def do_ip(self,arg):
+        print("entered ip function")
         self.printline('192.168.5.10 \r\n')
         return True        
     # even if you don't use the arg parameter, it must be included.
@@ -89,10 +90,12 @@ class Shell(Cmd):
         return True
     
     def do_EOF(self, line):
+        print("entered EOF function")
         return True
     
     # If an empty line is given as input, we just print out a newline.
     # This fixes a display issue when spamming enter.
     def emptyline(self):
+        print("EMPTYLINE")
         self.print('\r\n')
         

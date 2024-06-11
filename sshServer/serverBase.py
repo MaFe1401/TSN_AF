@@ -26,7 +26,7 @@ class ServerBase(ABC):
     def start(self, address='0.0.0.0', port=22, timeout=1):
         if not self._is_running.is_set():
             self._is_running.set()
-
+            print("STARTING SERVER")
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
             
@@ -45,6 +45,7 @@ class ServerBase(ABC):
     def stop(self):
         if self._is_running.is_set():
             self._is_running.clear()
+            print("Stopping and joining the listen thread")
             self._listen_thread.join()
             self._socket.close()
     
@@ -56,6 +57,7 @@ class ServerBase(ABC):
             try:
                 self._socket.listen()
                 client, addr = self._socket.accept()
+                print("Connection detected")
                 self.connection_function(client)
             except socket.timeout:
                 pass
