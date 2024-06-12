@@ -59,6 +59,7 @@ class Shell(Cmd):
     
     def do_sudo(self, arg):
         if arg:
+            self.print('\r\n')
             print("entered sudo function")
             # self.printline('looking for lldp neighbors')
             neighborsDSTT = checkNeighborsDSTT(dsttIp)
@@ -80,7 +81,7 @@ class Shell(Cmd):
 
     def do_ip(self,arg):
         print("entered ip function")
-        self.printline('192.168.5.10 \r\n')
+        self.printline('192.168.4.72 \r\n')
         return True        
     # even if you don't use the arg parameter, it must be included.
     def do_bye(self, arg):

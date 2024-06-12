@@ -34,15 +34,15 @@ class SshServerInterface(paramiko.ServerInterface):
         except:
             pass
         #print(time.time())
-        writemessage = channel.makefile("wb")
+        #writemessage = channel.makefile("wb")
         print(command)
         #print(command.decode())
         
-        writemessage.write("SOME COMMAND SUBMITTED")
-        writemessage.channel.send_exit_status(0)
+        #writemessage.write("SOME COMMAND SUBMITTED")
+        #writemessage.channel.send_exit_status(0)
         #time.sleep(3)
         #channel.close()
-        return True
+        #return True
     # This let's us setup password authentication.
     # There are better ways to do this than using plain text.
     # For posterity, you could setup a database that encrypts
