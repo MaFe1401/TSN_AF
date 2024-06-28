@@ -1,5 +1,5 @@
 import paramiko,time
-import channelSingleton
+
 class SshServerInterface(paramiko.ServerInterface):
     
     # This will allow the SSH server to provide a

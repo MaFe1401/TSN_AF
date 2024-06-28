@@ -20,10 +20,13 @@ services:
         - 8181:8181
   
   netopeer:
-      image: sysrepo/sysrepo-netopeer2:latest
+      build:
+        context: .
+        dockerfile: Netopeer/Dockerfile
       restart: always
+      stdin_open: true
       ports:
-        - 6001:6001
+        - 830:830
 
   ssh-server:
       build:

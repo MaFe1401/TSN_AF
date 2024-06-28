@@ -1,0 +1,36 @@
+<interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+  <interface>
+    <name>PORT_1</name>
+    <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+    <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
+      <gate-parameter-table xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-sched">
+        <gate-enabled>true</gate-enabled>
+        <admin-gate-states>255</admin-gate-states>
+        <admin-control-list>
+          <gate-control-entry>
+            <index>0</index>
+            <operation-name>set-gate-states</operation-name>
+            <time-interval-value>500000</time-interval-value>
+            <gate-states-value>255</gate-states-value>
+          </gate-control-entry>
+          <gate-control-entry>
+            <index>1</index>
+            <operation-name>set-gate-states</operation-name>
+            <time-interval-value>500000</time-interval-value>
+            <gate-states-value>188</gate-states-value>
+          </gate-control-entry>
+        </admin-control-list>
+        <admin-cycle-time>
+          <numerator>1000000</numerator>
+          <denominator>1000000000</denominator>
+        </admin-cycle-time>
+        <admin-cycle-time-extension>8</admin-cycle-time-extension>
+        <admin-base-time>
+          <seconds>0</seconds>
+          <nanoseconds>0</nanoseconds>
+        </admin-base-time>
+        <config-change>true</config-change>
+      </gate-parameter-table>
+    </bridge-port>
+  </interface>
+</interfaces>
