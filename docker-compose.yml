@@ -6,19 +6,16 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
-
-  opendaylight:
+  
+  southconf:
       build:
         context: .
-        dockerfile: Opendaylight/Dockerfile
-      restart: always 
-      stdin_open: true 
-      tty: true
-      ports:
-        - 6633:6633
-        - 8101:8101
-        - 8181:8181
-  
+        dockerfile: Southconf/Dockerfile
+      restart: always
+      stdin_open: true
+      volumes:
+        - ./Southconf:/southconf
+
   netopeer:
       build:
         context: .
