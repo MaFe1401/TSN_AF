@@ -2,8 +2,8 @@
   <interface>
     <name>PORT_1</name>
     <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
-    <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
-      <gate-parameter-table xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-sched">
+    <bridge-port>
+      <gate-parameter-table>
         <gate-enabled>true</gate-enabled>
         <admin-gate-states>255</admin-gate-states>
         <admin-control-list>
