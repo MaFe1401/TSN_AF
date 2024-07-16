@@ -15,6 +15,9 @@ services:
       stdin_open: true
       volumes:
         - ./Southconf:/southconf
+      depends_on:
+        - netopeer
+      tty: true
 
   netopeer:
       build:
@@ -22,6 +25,7 @@ services:
         dockerfile: Netopeer/Dockerfile
       restart: always
       stdin_open: true
+      #network_mode: host
       ports:
         - 830:830
 

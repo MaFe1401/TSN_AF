@@ -45,6 +45,6 @@ class SshServer(ServerBase):
             print("CLOSING")
             session.close()
         except:
-            print ("hola buenas tardes EXCEPT")
+            print ("EXCEPT")
             pass
 

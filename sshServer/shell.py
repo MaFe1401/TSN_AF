@@ -63,7 +63,7 @@ class Shell(Cmd):
             print("entered sudo function")
             # self.printline('looking for lldp neighbors')
             neighborsDSTT = checkNeighborsDSTT(dsttIp)
-            print("buenas tardes")
+            #print("buenas tardes")
             neighborsNWTT = checkNeighborsNWTT(nwttIp)
             delete_value('PORT_1','neighbors/nwttNeighbors.json')
             updatedNWTT=delete_value('PORT_PCIe','neighbors/nwttNeighbors.json') 
