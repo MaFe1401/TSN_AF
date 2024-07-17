@@ -25,6 +25,10 @@ if __name__ == "__main__":
                 print (e)
                 continue
             print("---------------------------------------")
-            editconfig(nwttIp, )
-            
+            print("---- DS-TT TAS CONFIGURATION ----")
+            dsttConfig = prepareDstt(interfaces)
+            editconfig(dsttIp, dsttConfig)
+            print("---- NW-TT TAS CONFIGURATION ----")
+            nwttConfig = prepareNwtt(interfaces)
+            editconfig(nwttIp, nwttConfig)
         
