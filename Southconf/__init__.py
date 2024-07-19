@@ -1,6 +1,9 @@
 from netconf_functions import *
 import time
 import lxml
+from rabbitmq_queues import *
+import json
+
 nwttIp="192.168.4.52"
 dsttIp="192.168.4.51"
 if __name__ == "__main__":
@@ -31,4 +34,10 @@ if __name__ == "__main__":
             print("---- NW-TT TAS CONFIGURATION EDITED----")
             nwttConfig = prepareNwtt(interfaces)
             editconfig(nwttIp, nwttConfig)
-            countStreams(dsttConfig)
+            trafficClassesList = countStreams(dsttConfig)
+            
+            streamsData = {}
+            streamsData["traffic_classes"] = trafficClassesList
+            json_streams_data = json.dumps(streamsData, indent = 4)
+            send_message(json_streams_data, 'south-cam')
+

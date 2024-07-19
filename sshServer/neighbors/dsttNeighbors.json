@@ -5,7 +5,7 @@
             "PORT_1": {
                "via": "LLDP",
                "rid": "5",
-               "age": "35 days, 22:33:35",
+               "age": "37 days, 00:05:15",
                "chassis": {
                   "RELY-TSN4": {
                      "id": {

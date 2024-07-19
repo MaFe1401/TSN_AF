@@ -17,7 +17,10 @@ services:
         - ./Southconf:/southconf
       depends_on:
         - netopeer
+        - rabbitmq-microservice
       tty: true
+      environment:
+        AMQP_URL: 'amqp://rabbit_mq?connection_attempts=10&retry_delay=10'
 
   netopeer:
       build:
@@ -41,4 +44,18 @@ services:
       network_mode: host 
       ports:
         - "22:22"
-      
+  
+  camaraclient:
+      build:
+        context: .
+        dockerfile: CamaraClient/Dockerfile
+      volumes:
+        - ./CamaraClient:/camaraclient
+      restart: always
+      stdin_open: true
+      tty: true
+      network_mode: host
+      depends_on:
+        - rabbitmq-microservice
+      environment:
+        AMQP_URL: 'amqp://rabbit_mq?connection_attempts=10&retry_delay=10'

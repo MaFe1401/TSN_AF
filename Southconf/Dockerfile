@@ -4,4 +4,5 @@ WORKDIR /southconf
 COPY /Southconf/requirements.txt /southconf/requirements.txt
 COPY /Southconf/__init__.py /southconf/__init__.py
 RUN pip install -r requirements.txt
+RUN pip install pika
 CMD ["python", "./__init__.py"]
