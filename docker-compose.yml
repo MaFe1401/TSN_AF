@@ -20,7 +20,7 @@ services:
         - rabbitmq-microservice
       tty: true
       environment:
-        AMQP_URL: 'amqp://rabbit_mq?connection_attempts=10&retry_delay=10'
+        AMQP_URL: 'amqp://rabbitmq-microservice?connection_attempts=10&retry_delay=10'
 
   netopeer:
       build:
@@ -54,8 +54,8 @@ services:
       restart: always
       stdin_open: true
       tty: true
-      network_mode: host
+      #network_mode: host
       depends_on:
         - rabbitmq-microservice
       environment:
-        AMQP_URL: 'amqp://rabbit_mq?connection_attempts=10&retry_delay=10'
+        AMQP_URL: 'amqp://rabbitmq-microservice?connection_attempts=10&retry_delay=10'

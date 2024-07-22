@@ -2,6 +2,7 @@ import json
 import pika
 from rabbitmq_queues import *
 import os
+
 amqp_url = os.environ['AMQP_URL']
 url_params = pika.URLParameters(amqp_url)
 if __name__ == "__main__":
@@ -16,3 +17,4 @@ if __name__ == "__main__":
 
     print("Waiting to consume")
     channel.start_consuming()
+
