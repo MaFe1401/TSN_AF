@@ -14,7 +14,11 @@ if __name__ == "__main__":
 
     channel.basic_qos(prefetch_count=1)
     channel.basic_consume(queue='south-cam', on_message_callback=receive_message)
-
+    #print('received msgg : ', streams)
     print("Waiting to consume")
-    channel.start_consuming()
+    streams = channel.start_consuming()
+    print('received msgg : ', streams)
+
+
+
 
