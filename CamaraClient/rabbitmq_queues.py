@@ -2,6 +2,7 @@ import pika
 import time
 import os
 from APICallFunctions import *
+
 def receive_message(ch, method, properties, body):
 
     print('received msg : ', body.decode('utf-8'))

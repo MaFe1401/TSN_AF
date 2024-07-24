@@ -16,5 +16,5 @@ ssh-keygen -t rsa -b 2048 -m PEM -f ./sshServer/rsa
 
 ### Edit config from netopeer server inside the container (for test purposes) 
 netopeer2-cli  
-connect  
+connect --login "user" 
 edit-config --target running --config=/opt/dev/Netopeer2/example_configuration/qbv_config_1.xml  
