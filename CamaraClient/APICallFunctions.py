@@ -13,31 +13,31 @@ def QoSmapping(streamsList):
     
     for stream in streamsList:
         #print("DETECTED "+stream)
-        if (stream == '2'): #PCP = 1
+        if (stream == '1'): #PCP = 1
             if ('QOS_E' not in qosProfiles):
                 qosProfiles.append('QOS_E')
             else: print("FOUND AN ALREADY EXISTING QOS_E FLOW")
-        elif (stream == '4'): #PCP = 2
+        elif (stream == '2'): #PCP = 2
             if ('QOS_E' not in qosProfiles):
                 qosProfiles.append('QOS_E')
             else: print("FOUND AN ALREADY EXISTING QOS_E FLOW")
-        elif (stream == '8'): #PCP = 3
+        elif (stream == '3'): #PCP = 3
             if ('QOS_E' not in qosProfiles):
                 qosProfiles.append('QOS_E')
             else: print("FOUND AN ALREADY EXISTING QOS_E FLOW")
-        elif (stream == '16'): #PCP = 4
+        elif (stream == '4'): #PCP = 4
             if ('QOS_E' not in qosProfiles):
                 qosProfiles.append('QOS_E')
             else: print("FOUND AN ALREADY EXISTING QOS_E FLOW")
-        elif (stream == '32'): #PCP = 5
+        elif (stream == '5'): #PCP = 5
             if ('QOS_E' not in qosProfiles):
                 qosProfiles.append('QOS_E')
             else: print("FOUND AN ALREADY EXISTING QOS_E FLOW")
-        elif (stream == '64'): #PCP = 6
+        elif (stream == '6'): #PCP = 6
             if ('QOS_E' not in qosProfiles):
                 qosProfiles.append('QOS_E')
             else: print("FOUND AN ALREADY EXISTING QOS_E FLOW")
-        elif (stream == '128'): #PCP = 7
+        elif (stream == '7'): #PCP = 7
             if ('QOS_E' not in qosProfiles):
                 qosProfiles.append('QOS_E')
             else: print("FOUND AN ALREADY EXISTING QOS_E FLOW")
