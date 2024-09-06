@@ -3,13 +3,23 @@ from netconf_client.ncclient import Manager
 from lxml import etree
 import xml.etree.ElementTree as ET
 import math
-
-
-#Gets running configuration from Netopeer server microservice
+#import httpx
+'''
+def createSession(profile):
+    sessionData = {'ueIpv4addr':'10.45.0.2', 'asIpv4addr':'192.168.21.10', 'qosProfile':profile}
+    requests.post("http://10.8.0.1:8088/",data=sessionData)
+    #print("CREATED NEW QOS FLOW IN OPEN5GS")
+'''
+#Gets running TAS configuration from Netopeer server microservice and streams configuration from CNC's Jetconf
 def getconfig(): 
     session = connect_ssh(host="netopeer", port=830, username="netconf", password="netconf")
     mgr = Manager(session, timeout=120)
     config = mgr.get_config("running").data_xml
+    '''''
+    url = "https://192.168.2.20:8443/restconf/data/ieee802-dot1q-tsn-types-upc-version:tsn-uni"
+    headers = {'X-SSL-Client-CN': 'marc'}
+    streamsConfig = httpx.get(url, headers=headers)
+    '''
     return config.decode('utf-8')
 
 #Filters obtained configuration (deletes keystore xml fragment)

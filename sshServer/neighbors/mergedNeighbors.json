@@ -4,8 +4,8 @@
          {
             "PORT_0": {
                "via": "LLDP",
-               "rid": "6",
-               "age": "15 days, 23:09:53",
+               "rid": "12",
+               "age": "3 days, 01:44:15",
                "chassis": {
                   "RELY-TSN4": {
                      "id": {
@@ -40,18 +40,18 @@
          {
             "PORT_1": {
                "via": "LLDP",
-               "rid": "5",
-               "age": "41 days, 19:18:29",
+               "rid": "7",
+               "age": "3 days, 01:43:05",
                "chassis": {
                   "RELY-TSN4": {
                      "id": {
                         "type": "mac",
-                        "value": "de:44:49:b5:a3:a2"
+                        "value": "56:b1:65:24:6d:6c"
                      },
                      "descr": "RELY-TSN4",
                      "mgmt-ip": [
                         "192.168.4.66",
-                        "fe80::dc44:49ff:feb5:a3a2"
+                        "fe80::54b1:65ff:fe24:6d6c"
                      ],
                      "mgmt-iface": [
                         "3",

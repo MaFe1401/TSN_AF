@@ -81,7 +81,8 @@ class Shell(Cmd):
 
     def do_ip(self,arg):
         print("entered ip function")
-        self.printline('192.168.4.72 \r\n')
+        self.printline('192.168.4.52')
+        self.printline('192.168.4.51\r\n')
         return True        
     # even if you don't use the arg parameter, it must be included.
     def do_bye(self, arg):
