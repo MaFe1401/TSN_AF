@@ -31,18 +31,19 @@ async def getStreamConfig():
         response = await client.get(url, headers=headers)
         print(response.json())
         return response.json()
-       
-
-
-response=asyncio.run(getStreamConfig())
-
+    
 def getEndInterfaces(streamConfig):
     responseString = json.dumps(streamConfig)
     listenersList = find_values('listeners-list', responseString)
     listenersListString = json.dumps(listenersList)
     endInterfaces = find_values('ip', listenersListString)
-    print(endInterfaces)
+    print(endInterfaces)       
 
+
+response=asyncio.run(getStreamConfig())
+getEndInterfaces(response)
+
+'''
 with open('streamsConfig.json', 'w') as f:
     #f.write(json.dumps(response))
     responseString = json.dumps(response)
@@ -50,7 +51,8 @@ with open('streamsConfig.json', 'w') as f:
     listenersListString = json.dumps(listenersList)
     endInterfaces = find_values('ip', listenersListString)
     print(endInterfaces)
-    '''
+'''
+'''
     endIps = []
     for endInterface in endInterfaces:
         endInterfaceString = json.dumps(endInterface)

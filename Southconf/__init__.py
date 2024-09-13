@@ -3,6 +3,7 @@ import time
 import lxml
 from rabbitmq_queues import *
 import json
+import asyncio
 
 nwttIp="192.168.4.52"
 dsttIp="192.168.4.51"
@@ -37,9 +38,15 @@ if __name__ == "__main__":
             nwttConfig = prepareNwtt(interfaces)
             editconfig(nwttIp, nwttConfig)
             trafficClassesList = countStreams(dsttConfig)
-            
+            streamsConfig = asyncio.run(getStreamConfig())
+            print("STREAMS CONFIG-----------")
+            print(streamsConfig)
+            print("END INTERFACES-----------")
+            endInterfaces = getEndInterfaces(streamsConfig)
+            print(endInterfaces)
             streamsData = {}
             streamsData["traffic_classes"] = trafficClassesList
+            streamsData["end_interfaces"] = endInterfaces
             json_streams_data = json.dumps(streamsData, indent = 4)
             send_message(json_streams_data, 'south-cam')
             print("Message sent to RabbitMQ")
