@@ -8,7 +8,7 @@ sudo docker-compose up
 
 sudo docker ps  
 sudo docker inspect (id)  
-sudo docker logs --tail 50 --follow --timestamps container_instance_name
+sudo docker logs --tail 50 --follow --timestamps container_instance_name  
 sudo docker exec -it (id) bash
 
 ### Generate an SSH RSA keypair 
